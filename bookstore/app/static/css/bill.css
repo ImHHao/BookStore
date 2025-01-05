@@ -1,0 +1,94 @@
+.bill-body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    padding: 0;
+    font-size: 16px;
+}
+
+.bill-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 30px;
+    border: 1px solid #009688;
+    background-color: #ffffff;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    margin-top: 120px;
+    text-align: center;
+    /* Căn nội dung ở trung tâm */
+}
+
+.bill-header {
+    margin-bottom: 20px;
+    color: #004d40;
+}
+
+.bill-header h1 {
+    font-size: 26px;
+    margin: 0;
+}
+
+.bill-customer-info,
+.bill-employee-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    font-size: 14px;
+}
+
+.bill-customer-info div,
+.bill-employee-info div {
+    width: 48%;
+    display: inline-block;
+    /* Đảm bảo mỗi div có width 48% */
+}
+
+.bill-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    overflow: hidden;
+    font-size: 18px;
+    /* Tăng font-size cho bảng */
+}
+
+.bill-table,
+th.bill-th,
+td.bill-td {
+    border: 1px solid #b2dfdb;
+}
+
+th.bill-th,
+td.bill-td {
+    padding: 16px;
+    /* Tăng padding cho cột */
+    text-align: center;
+    /* Căn nội dung ở giữa */
+}
+
+th.bill-th {
+    background-color: #009688;
+    color: #ffffff;
+}
+
+td img.bill-td {
+    max-width: 80px;
+    /* Tăng kích thước ảnh */
+    border-radius: 5px;
+}
+
+.bill-footer {
+    text-align: right;
+    font-size: 14px;
+    color: #004d40;
+}
+
+.bill-footer-row {
+    text-align: right;
+    padding-right: 20px;
+}
+
+.bill-footer-label {
+    font-size: 1.8rem;
+}

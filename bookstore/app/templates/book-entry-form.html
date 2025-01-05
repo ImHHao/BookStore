@@ -1,0 +1,40 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<body class="book-inventory-body">
+
+    <div class="book-inventory-container">
+        <div class="book-inventory-header">
+            <h1>Phiếu nhập sách</h1>
+        </div>
+
+        <div class="book-inventory-date">Ngày nhập: {{ createdDate }}</div>
+
+        <table class="book-inventory-table">
+            <thead>
+                <tr>
+                    <th>Mã sách</th>
+                    <th>Tên sách</th>
+                    <th>Thể loại</th>
+                    <th>Tác giả</th>
+                    <th>Số lượng</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for f in fo.values() %}
+                <tr>
+                    <td>{{ f.bookID }}</td>
+                    <td>{{f.name }}</td>
+                    <td>{{ f.category }}</td>
+                    <td>{{ f.author }}</td>
+                    <td>{{ f.inventoryQuantity }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div>
+        <a type="button" class="btn btn-secondary" href="/manage/">Quay lại</a>
+    </div>
+</body>
+{% endblock %}

@@ -1,0 +1,164 @@
+body {
+    background-color: #eeeeee;
+    font-family: 'Open Sans', serif;
+    font-size: 14px;
+}
+
+.container-fluid {
+    margin-top: 120px;
+}
+
+.card-body-cart {
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 1.40rem;
+}
+
+.img-sm {
+    width: 80px;
+    height: 80px;
+}
+
+.itemside .info {
+    padding-left: 15px;
+    padding-right: 7px;
+}
+
+.table-shopping-cart .price-wrap {
+    line-height: 1.2;
+    margin-top: 23px;
+}
+
+.table-shopping-cart .price {
+    font-weight: bold;
+    margin-right: 5px;
+    display: block;
+}
+
+.quantity-control .quantity-input {
+    width: 10px;
+    /* Chiều rộng cho ô input */
+}
+
+
+.text-muted-cart {
+    color: #969696 !important;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+.card {
+    position: relative;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, .125);
+    border-radius: 0px;
+}
+
+.itemside {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    width: 100%;
+}
+
+.dlist-align {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+}
+
+[class*="dlist-"] {
+    margin-bottom: 5px;
+}
+
+.coupon {
+    border-radius: 1px;
+}
+
+.price {
+    font-weight: 600;
+    color: #212529;
+}
+
+.btn.btn-out {
+    outline: 1px solid #fff;
+    outline-offset: -5px;
+}
+
+.btn-main {
+    border-radius: 2px;
+    text-transform: capitalize;
+    font-size: 15px;
+    padding: 10px 19px;
+    cursor: pointer;
+    color: #fff;
+    width: 100%;
+}
+
+.btn-light {
+    color: #ffffff;
+    background-color: #F44336;
+    border-color: #f8f9fa;
+    font-size: 12px;
+    margin-left: 30px;
+    margin-top: 23px;
+}
+
+.btn-light:hover {
+    color: #ffffff;
+    background-color: #F44336;
+    border-color: #F44336;
+}
+
+.btn-apply {
+    font-size: 11px;
+}
+
+.table th:nth-child(1) {
+    padding-left: 20px;
+}
+
+.quantity-control .btn {
+    font-size: 12px;
+    padding: 8px 11px;
+    margin-top: 20px;
+}
+
+.quantity-control .form-control {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-top: 20px;
+    /* Adjust the value as per your preference */
+}
+
+.quantity-control .quantity-input {
+    text-align: center;
+    width: 40px;
+}
+
+.cart-icon {
+    font-size: 2rem;
+    color: white;
+    position: relative;
+}
+
+.cart-icon .badge {
+    font-size: 0.8rem;
+    padding: 0.2rem 0.4rem;
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: red;
+    color: white;
+    border-radius: 50%;
+}

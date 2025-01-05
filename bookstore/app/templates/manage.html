@@ -1,0 +1,161 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<body class="book-manager">
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <!-- Toast Container -->
+        <div id="toast-container" class="toast-container position-fixed top-0 end-0 p-3">
+            <!-- Toast Template -->
+        </div>
+    </div>
+    <!-- Sidebar -->
+    <div class="d-flex">
+        <!-- Main content -->
+        <div class="container-fluid">
+            <form action="/manage/" role="search">
+                <input type="search" class="form-control" placeholder="Tên sách..." aria-label="Search" name="kw">
+            </form>
+            <div class="table-container fade-in">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h2>Danh sách sản phẩm</h2>
+                    <button class="btn btn-primary" onclick="showDialog('add')">+ Thêm sách mới</button>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#updateForm" aria-expanded="false" aria-controls="updateForm">
+                        Cập nhật số lượng sách
+                    </button>
+                    <div class="collapse mt-3" id="updateForm">
+                        <div class="card card-body">
+                            <form id="bookForm">
+                                <!-- Input for Book ID -->
+                                <div class="mb-3">
+                                    <label for="bookId" class="form-label">Mã sách</label>
+                                    <input type="text" class="form-control" id="bookId" placeholder="Nhập mã sách"
+                                        required>
+                                </div>
+                                <!-- Input for Quantity -->
+                                <div class="mb-3">
+                                    <label for="bookQuantity" class="form-label">Số lượng sách</label>
+                                    <input type="number" class="form-control" id="bookQuantity"
+                                        placeholder="Nhập số lượng" required>
+                                </div>
+                                <!-- Submit Button -->
+                                <button type="button" class="btn btn-success" id="updateButton" 
+                                    onclick="updateBook(document.getElementById('bookId').value, document.getElementById('bookQuantity').value)">
+                                    Cập nhật
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Mã sách</th>
+                        <th>Tên sách</th>
+                        <th>Ảnh sách</th>
+                        <th>Thể loại</th> <!-- Thêm cột Category -->
+                        <th>Giá</th>
+                        <th>Tác giả</th>
+                        <th>Số lượng</th>
+                        <th>Tuỳ chọn</th>
+                    </tr>
+                </thead>
+                <tbody id="bookTableBody">
+                    {% for book in books %}
+                    <tr id="book{{ book.id }}">
+                        <td>{{ book.id }}</td>
+                        <td>{{ book.name }}</td>
+                        <td><img src="{{ book.image }}" alt="Book Cover"></td>
+                        <td>{{ book.category.name }}</td> <!-- Giá trị thể loại -->
+                        <td>{{ book.price|currency }}</td>
+                        <td><span class="author-badge">{{ book.author.name }}</span></td>
+                        <td>{{ book.inventoryQuantity }}</td>
+                        <td>
+                            <button class="btn-icon delete" title="Delete" onclick="deleteBook({{ book.id }})">
+                                <span class="fas fa-trash"></span>
+                            </button>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            {% if form %}
+            <button class="btn btn-primary mt-2" onclick="addForm()">In phiếu nhập sách</button>
+            {% endif %}
+        </div>
+    </div>
+    </div>
+
+    <div class="d-flex justify-content-between align-items-center mb-3">
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination mt-3">
+                {% for i in range (1, pages + 1) %}
+                <li class="page-item"><a class="page-link" href="/manage/?page={{ i }}">{{ i }}</a></li>
+                {% endfor %}
+            </ul>
+        </nav>
+
+        <a type="btn" class="btn btn-primary" href="/order/">
+            Quay lại
+        </a>
+
+    </div>
+    <!-- Modal -->
+    </div>
+
+    <div class="modal fade" id="bookModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle">Add/Edit Book</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="post" id="bookForm" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="bookName" class="form-label">Tên sách</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookPrice" class="form-label">Giá</label>
+                            <input type="number" class="form-control" id="price" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookAuthor" class="form-label">Tác giả</label>
+                            <input type="text" class="form-control" id="author" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookStock" class="form-label">Số lượng tồn</label>
+                            <input type="number" class="form-control" id="inventoryQuantity" value="0">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bookImage" class="form-label">Book Image</label>
+                            <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                        </div>
+                        <!-- New Category Field -->
+                        <div class="mb-3">
+                            <label for="bookCategory" class="form-label">Category</label>
+                            <select class="form-select" id="category" required>
+                                <option value="">Chọn thể loại</option>
+                                {% for c in cates %}
+                                <option value="{{ c.name }}">{{ c.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary"
+                        onclick='addBook(document.getElementById("name").value, document.getElementById("author").value,
+                                        document.getElementById("category").value, document.getElementById("price").value, 
+                                        document.getElementById("image").files[0], document.getElementById("inventoryQuantity").value)'>
+                        Save
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+{% endblock %}

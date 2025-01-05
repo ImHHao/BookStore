@@ -1,0 +1,117 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <!-- Tabs -->
+    <ul class="nav nav-tabs mb-4">
+        <li class="nav-item">
+            <a class="nav-link active" href="/list-order">Đơn hàng</a>
+        </li>
+    </ul>
+    <div class="row mb-4">
+        <!-- Phần Tìm kiếm và sản phẩm -->
+        <div class="col-md-8">
+            <div class="search-and-products-container"
+                style="background-color: #9b9b9e; padding: 15px; border-radius: 8px;">
+                <div class="row g-3">
+                    <!-- Phần Tìm kiếm sản phẩm -->
+                    <div class="col-auto">
+                        <div class="col-auto">
+                            <!-- Biểu tượng kính lúp bên trong ô nhập liệu -->
+                            <!-- <span class="input-group-text"><i class="bi bi-search"></i></span> -->
+                            <form class="input-group">
+                                <input type="search" name="kw" class="form-control" placeholder="Nhập tên sách...">
+                                <button class="btn custom-btn" type="submit">Tìm kiếm</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-auto">
+                        <ul class="pagination">
+                            {% for i in range (1, pages + 1) %}
+                            <li class="page-item"><a class="page-link" href="/order/?page={{ i }}">{{ i }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                    {% if current_user.staff.role_permission == RolePer.MANAGER %}
+                    <div class="col-auto ms-auto">
+                        <a href="/manage">
+                            <button her class="btn btn-success">Quản trị sách</button>
+                        </a>
+                    </div>
+                    {% endif %}
+                </div>
+
+                <!-- Sản phẩm -->
+                <div class="product-background p-4 mt-4" style="background-color: #f7f7f7; border-radius: 8px;">
+                    <div class="row">
+                        {% for book in books %}
+                        {% if book.inventoryQuantity != 0 %}
+                        <div class="col-md-3 col-lg-3 mb-4">
+                            <div class="product-item">
+                                <figure class="product-style">
+                                    <img src="{{ book.image }}" alt="Books" class="product-item">
+                                    <button type="button" class="add-to-cart btn btn-primary mt-2"
+                                        onclick="addToOrder('{{ book.id }}', '{{ book.name }}', '{{ book.author.name }}', '{{ book.category.name }}', '{{ book.image }}', {{ book.price }}, {{ cart }})">
+                                        Thêm
+                                    </button>
+                                </figure>
+                                <figcaption>
+                                    <h3>{{ book.name }}</h3>
+                                    <span>{{ book.author.name }}</span>
+                                    <div class="item-price">{{ book.price|currency }}</div>
+                                </figcaption>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Phần Thanh toán -->
+        <div class="col-md-4">
+            <div class="card-order">
+                <div class="card-header" style="background-color: #9b9b9e; color: white;">Đơn hàng</div>
+                <div class="card-body payment-card-body-order">
+                    <!-- Giỏ hàng nếu có sản phẩm -->
+                    <div id="cartItemsContainer">
+                        <table class="table cart-table">
+                            <thead>
+                                <tr>
+                                    <th>Tên sách</th>
+                                    <th>Số lượng</th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartItems">
+                                {% if cart %}
+                                {% for c in cart.values() %}
+                                <tr>
+                                    <td class="product-name">{{c.name}}</td>
+                                    <td>
+                                        <input type="number" class="form-control quantity-input" value="{{c.quantity}}"
+                                            min="1" onchange="updateQuantityOrder('{{c.name}}', '{{c.image}}', this, {{ cart }})">
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                                {% endif %}
+                                <!-- Các sản phẩm sẽ được thêm vào đây -->
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Thông báo giỏ hàng trống -->
+                    <div id="emptyCartMessage" class="text-center d-none">
+                        <p><i class="bi bi-cart-dash"></i> Hiện chưa có đơn hàng nào.</p>
+                    </div>
+
+                    <!-- Các nút thanh toán và xóa giỏ hàng -->
+                    <div class="mt-auto payment-buttons">
+                        <button class="btn btn-warning" onclick="removeCartFromOrder()">Xóa giỏ hàng</button>
+                        <button class="btn btn-danger" onclick="addCartFromOrder()">Thanh toán</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

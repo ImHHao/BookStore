@@ -1,0 +1,178 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.book-detail-body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f3f4f6;
+    color: #333;
+    line-height: 1.6;
+    margin-top: 60px;
+}
+
+.book-detail-container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    background: #ffffff;
+    padding: 30px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.book-detail-main {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+    background: #f8f9fa;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.book-detail-image {
+    width: 350px;
+    height: auto;
+    border: 4px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+.book-detail-info {
+    flex-grow: 1;
+}
+
+.book-detail-title {
+    font-size: 36px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.book-detail-author,
+.book-detail-category,
+.book-detail-stock {
+    font-size: 18px;
+    color: #555;
+    margin: 8px 0;
+}
+
+.book-detail-price {
+    font-size: 28px;
+    font-weight: bold;
+    color: #e74c3c;
+    margin-top: 10px;
+}
+
+.book-detail-quantity {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.book-detail-quantity label {
+    font-weight: bold;
+    margin-right: 10px;
+    font-size: 18px;
+    color: #2c3e50;
+}
+
+.book-detail-quantity button {
+    width: 40px;
+    height: 40px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.book-detail-quantity button:hover {
+    background-color: #2980b9;
+}
+
+.book-detail-quantity input {
+    width: 50px;
+    height: 40px;
+    text-align: center;
+    font-size: 18px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    margin: 0 5px;
+}
+
+.book-detail-add-cart {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 24px;
+    background-color: #27ae60;
+    color: #fff;
+    font-size: 18px;
+    font-weight: bold;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background 0.3s ease;
+}
+
+.book-detail-add-cart:hover {
+    background-color: #229954;
+}
+
+.book-detail-reviews {
+    margin-top: 40px;
+    border-top: 3px solid #2c3e50;
+    padding-top: 20px;
+}
+
+.book-detail-reviews-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 15px;
+}
+
+.book-detail-review {
+    display: flex;
+    gap: 15px;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+}
+
+.book-detail-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 2px solid #3498db;
+}
+
+.book-detail-review-content .book-detail-review-name {
+    font-weight: bold;
+    color: #34495e;
+}
+
+.book-detail-review-content .book-detail-review-time {
+    font-size: 14px;
+    color: #777;
+}
+
+.book-detail-review-box {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    /* Tạo khoảng cách giữa các comment */
+}
+
+.book-detail-review {
+    display: flex;
+    gap: 15px;
+    background-color: #ecf0f1;
+    padding: 15px;
+    border: 1px solid #dcdcdc;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Thêm đổ bóng nhẹ */
+}

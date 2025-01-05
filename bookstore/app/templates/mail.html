@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            margin: 0;
+            padding: 0;
+        }
+
+        .bill-container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .bill-header {
+            text-align: center;
+            border-bottom: 2px solid #00796b;
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }
+
+        .bill-header h1 {
+            font-size: 24px;
+            color: #00796b;
+            margin: 0;
+        }
+
+        .bill-customer-info {
+            margin-bottom: 20px;
+        }
+
+        .bill-customer-info h3 {
+            font-size: 16px;
+            color: #343a40;
+            margin-bottom: 10px;
+        }
+
+        .bill-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        .bill-table th, .bill-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .bill-table th {
+            background-color: #00796b;
+            color: white;
+        }
+
+        .bill-footer {
+            text-align: center;
+            padding: 10px;
+            border-top: 2px solid #00796b;
+            margin-top: 20px;
+        }
+
+        .bill-footer p {
+            margin: 5px 0;
+            font-size: 14px;
+            color: #6c757d;
+        }
+
+        .total-container {
+            text-align: right;
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #00796b;
+        }
+    </style>
+</head>
+<body>
+    <div class="bill-container">
+        <div class="bill-header">
+            <h1>HÓA ĐƠN BÁN SÁCH</h1>
+            <p>Số hóa đơn: #{{ orderID }}</p>
+        </div>
+        <div class="bill-customer-info">
+            <h3>Thông tin khách hàng</h3>
+            <p><strong>Tên khách hàng:</strong> {{ customerName }}</p>
+            <p><strong>Địa chỉ giao hàng:</strong> {{ address }}</p>
+        </div>
+        <h3>Chi tiết đơn hàng:</h3>
+        <table class="bill-table">
+            <thead>
+                <tr>
+                    <th>STT</th>  <!-- Thêm cột STT -->
+                    <th>Mã sách</th>
+                    <th>Tên sách</th>
+                    <th>Tác giả</th>
+                    <th>Đơn giá</th>
+                    <th>Số lượng</th>
+                    <th>Thành tiền</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for book in orderData %}
+                <tr>
+                    <td>{{ loop.index }}</td>
+                    <td>{{ book['id'] }}</td>
+                    <td>{{ book['name'] }}</td>
+                    <td>{{ book['author'] }}</td>
+                    <td>{{ "{:,.0f}".format(book['price']).replace(",", ".") }} VND</td>
+                    <td>{{ book['quantity'] }}</td>
+                    <td>{{ "{:,.0f}".format(book['price'] * book['quantity']).replace(",", ".") }} VND</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <div class="total-container">
+            Tổng cộng: {{ "{:,.0f}".format(total).replace(",", ".") }} VND
+        </div>
+        <div class="bill-footer">
+            <p>Cảm ơn quý khách đã mua hàng!</p>
+            <p>Phương thức thanh toán: {{ 'Tiền mặt' if not isPaid else 'Đã thanh toán qua VNPAY' }}</p>
+            <p>Lưu ý: Sau 48 giờ nếu không đến nhận, đơn sẽ bị hủy tự động bởi hệ thống.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,61 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<body class="detail-order-body" xmlns="http://www.w3.org/1999/html">
+<div class="detail-order-container">
+    <h2 class="detail-order-heading">Chi tiết đơn hàng</h2>
+    <table class="table detail-order-table table-bordered table-striped">
+        <thead class="detail-order-thead">
+        <tr>
+            <th scope="col">Mã sách</th>
+            <th scope="col">Tên sách</th>
+            <th scope="col">Hình ảnh</th>
+            <th scope="col">Giá sách (VND)</th>
+            <th scope="col">Số lượng</th>
+            <th scope="col">Tổng giá sách (VND)</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for do in detailOrder %}
+        <tr>
+            <td>{{ do.id }}</td>
+            <td>{{ do.name }}</td>
+            <td><img src="{{ do.image }}" alt="Book 1" class="detail-order-book-image"></td>
+            <td>{{ do.price|currency }}</td>
+            <td>{{ do.quantity }}</td>
+            <td>{{ do.total_price|currency }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+        <tfoot class="detail-order-tfoot">
+        <tr>
+            <td colspan="5" class="detail-order-text-end"><strong>Tổng số tiền (VND):</strong></td>
+            <td>{{ total|currency }}</td>
+        </tr>
+        </tfoot>
+    </table>
+
+  <div class="button-container" style="text-align: right;">
+    {% if current_user.user_role == UserRole.STAFF %}
+        <a type="button" href="/bill/{{ orderID }}" class="btn btn-primary mt-3"
+           style="background-color: #00796b; border-color: #00796b;">
+            In hoá đơn
+        </a>
+    {% else %}
+        {% if order.isCancel %}
+            <div class="alert alert-danger" role="alert">
+                Đơn hàng đã bị hủy
+            </div>
+        {% else %}
+            <form method="POST" action="{{ url_for('cancel_order', order_id=orderID) }}" id="cancelOrderForm">
+                <button type="button" class="btn btn-danger" id="cancelOrderBtn">Hủy đơn</button>
+            </form>
+        {% endif %}
+        <a type="button" href="/list-order/{{ current_user.id }}" class="btn btn-primary mt-3"
+           style="background-color: #00796b; border-color: #00796b;">Quay lại</a>
+    {% endif %}
+</div>
+
+</div>
+</body>
+{% endblock %}

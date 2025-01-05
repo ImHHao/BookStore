@@ -1,0 +1,236 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+.report-container {
+    background-color: #ffffff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 100%;
+    max-width: 500px;
+    /* Giới hạn chiều rộng của container */
+    height: 400px;
+    /* Giảm chiều cao của container */
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+    /* Chỉ định chiều dọc cho flexbox */
+    justify-content: space-between;
+    /* Giữ cho chiều dài lớn hơn chiều cao */
+}
+
+.report-header {
+    text-align: center;
+    margin-bottom: 15px;
+    /* Giảm khoảng cách dưới header */
+}
+
+.report-header h1 {
+    font-size: 24px;
+    /* Giảm kích thước font chữ */
+    color: #2c3e50;
+    /* Màu xanh dương đậm hơn */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Tạo bóng để nổi bật hơn */
+}
+
+.report-info {
+    text-align: center;
+    font-size: 20px;
+    /* Giảm kích thước font chữ */
+    color: #e74c3c;
+    /* Màu đỏ sáng nổi bật hơn */
+    margin-bottom: 15px;
+    /* Giảm khoảng cách dưới info */
+    font-weight: bold;
+}
+
+.report-info p {
+    margin: 5px 0;
+}
+
+.report-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 15px;
+    /* Giảm khoảng cách dưới bảng */
+}
+
+.report-table th,
+.report-table td {
+    padding: 10px;
+    /* Giảm padding */
+    border: 1px solid #ddd;
+    text-align: center;
+    font-size: 16px;
+    /* Giảm kích thước font chữ */
+    color: #2c3e50;
+    /* Màu chữ đậm */
+}
+
+.report-table th {
+    background-color: #f39c12;
+    /* Màu vàng tươi sáng hơn */
+    font-weight: bold;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    /* Tạo bóng để nổi bật hơn */
+}
+
+.report-table tbody tr:nth-child(even) {
+    background-color: #ecf0f1;
+    /* Màu xám sáng hơn */
+}
+
+.report-table tbody tr:hover {
+    background-color: #bdc3c7;
+    /* Màu xám đậm hơn */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    /* Tăng hiệu ứng nổi */
+}
+
+.report-summary {
+    text-align: center;
+    font-size: 22px;
+    /* Giảm kích thước font chữ */
+    font-weight: bold;
+    color: #27ae60;
+    /* Màu xanh lá cây tươi sáng hơn */
+    border: 1px solid #27ae60;
+    /* Bo viền tươi sáng cho tổng doanh thu */
+    padding: 5px;
+    border-radius: 5px;
+    background-color: #e8f8f5;
+    /* Màu nền sáng tươi tắn */
+}
+
+.report-footer {
+    text-align: center;
+    font-size: 16px;
+    /* Giảm kích thước font chữ */
+    color: #7f8c8d;
+    /* Màu xám trung bình */
+    margin-top: 20px;
+}
+
+/* Thêm kiểu chữ vuông */
+.report-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.report-table th,
+.report-table td {
+    font-size: 16px;
+    /* Thu nhỏ kích thước font chữ */
+}
+
+.report-body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #fo4f4f4;
+}
+
+.row-container {
+    display: flex;
+    /* Sắp xếp theo hàng ngang */
+    justify-content: space-between;
+    /* Khoảng cách đều giữa các phần tử */
+    align-items: flex-start;
+    /* Căn các phần tử trên cùng */
+    gap: 20px;
+    /* Khoảng cách giữa bảng và biểu đồ */
+    width: 100%;
+    /* Chiếm toàn bộ chiều rộng */
+    max-width: 1200px;
+    /* Đặt giới hạn chiều rộng tối đa */
+    overflow: hidden;
+    /* Xử lý tràn nội dung */
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Hiệu ứng đổ bóng */
+    margin-top: 10px;
+}
+
+
+.report-content {
+    flex: 2.5;
+    /* Bảng chiếm nhiều không gian hơn */
+    max-width: 55%;
+}
+
+.chart-container {
+    flex: 3;
+    /* Biểu đồ chiếm ít không gian hơn */
+    max-width: 45%;
+    margin-top: 90px;
+}
+
+/* CSS cho phần chọn thời gian */
+.time-selector {
+    margin-top: 50px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    gap: 15px;
+    /* Khoảng cách giữa các lựa chọn */
+    text-align: center;
+    font-size: 16px;
+}
+
+.time-selector .form-group {
+    display: flex;
+    flex-direction: row;
+    /* Thay đổi từ chiều dọc sang chiều ngang */
+    align-items: center;
+    /* Đảm bảo label và select nằm trên cùng một hàng */
+}
+
+.time-selector label {
+    margin-right: 10px;
+    /* Khoảng cách giữa label và lựa chọn */
+    color: #34495e;
+    /* Màu chữ tối hơn */
+    margin-top: 10px;
+}
+
+.time-selector select {
+    width: 100px;
+    /* Giới hạn chiều rộng phù hợp với thiết kế theo chiều ngang */
+    border: 1px solid #bdc3c7;
+    /* Viền xám sáng */
+    border-radius: 5px;
+    font-size: 14px;
+    color: #2c3e50;
+}
+
+.time-selector button {
+    background-color: #e74c3c;
+    /* Màu đỏ nổi bật hơn */
+    color: #ffffff;
+    /* Màu chữ trắng */
+    border: none;
+    padding: 8px 16px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-bottom: 14px;
+    transition: background-color 0.3s;
+    /* Hiệu ứng chuyển đổi */
+}
+
+.time-selector button:hover {
+    background-color: #c0392b;
+    /* Màu đỏ đậm hơn khi hover */
+}

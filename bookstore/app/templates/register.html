@@ -1,0 +1,80 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="row">
+    <div class="mx-auto mt-2 text-center mt-3">
+        <img src="../static/images/booklogo.png" width="4%" alt="Logo Barber" />
+    </div>
+</div>
+<!--  -->
+<div class="row mt-5">
+    <div class="col-md-6">
+        <img class="img-register img-fluid" src="../static/images/img2.svg" width="435px" alt="Register Image" />
+    </div>
+    <div class="col-md-6 mt-3">
+        <div class="card shadow-sm p-3">
+            <div class="card-body">
+                <h4>Đăng ký</h4>
+                <p class="text-muted">Sign Up for the Best Book!</p>
+                {% if err_msg %}
+                <div class="alert alert-danger">
+                    <p>{{ err_msg }}</p>
+                </div>
+                {% endif %}
+                <form action="/register" class="mt-4" method="post" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <input type="number" class="form-control" name="phone" id="phone" placeholder="Số điện thoại"
+                            required />
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" name="name" id="name" placeholder="Tên người dùng" required />
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="Tên đăng nhập"
+                            required />
+                    </div>
+                    <div class="input-group mt-2">
+                        <input type="password" class="form-control" placeholder="Mật khẩu" id="password" name="password"
+                            required />
+                        <div class="input-group-append">
+                            <span class="input-group-text" onclick="displayPassword()">
+                                <i id="display-pass" data-feather="eye"></i>
+                                <i id="hiden-pass" data-feather="eye-off"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="input-group mt-2">
+                        <input type="password" class="form-control" placeholder="Xác nhận mật khẩu" id="confirm"
+                            name="confirm" required />
+                        <div class="input-group-append">
+                            <span class="input-group-text" onclick="displayPasswordConfirm()">
+                                <i id="display-confirm" data-feather="eye"></i>
+                                <i id="hiden-confirm" data-feather="eye-off"></i>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" id="email" name="email" placeholder="abc@gmail.com"
+                            required />
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" name="address" id="address" placeholder="Địa chỉ" required />
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="file" class="form-control" id="avatar" name="avatar">
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary mt-2 btn-color-theme" type="submit" name="register">
+                            Đăng ký
+                        </button>
+                        <p class="text-center">
+                            Đã có tài khoản ?
+                            <a class="text-theme nav-link text-danger" href="/login">Đăng nhập</a>
+                        </p>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

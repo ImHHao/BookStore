@@ -1,0 +1,64 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div class="container mt-4">
+    <!-- Date Range -->
+    <div class="row g-3 mb-4 align-items-end">
+        <!-- Search -->
+        <form class="col-auto ms-auto d-flex align-items-center" style="margin-top: 100px;">
+            <input type="search" name="kw" class="form-control me-2" style="width: 200px;"
+                   placeholder="Nhập Mã Đơn Hàng...">
+            <button class="btn btn-primary" type="submit">Tìm kiếm</button>
+        </form>
+    </div>
+    <!-- Card Body -->
+    <div class="card">
+        <div class="card-header">
+            <h5>Danh sách đơn hàng</h5>
+        </div>
+        <div class="card-body">
+            <!-- Nội dung bảng -->
+            <table id="advanced_table" class="table-list-order table-striped">
+                <thead>
+                <tr>
+                    <th>Thứ tự</th>
+                    <th class="nosort">Order ID</th>
+                    <th>Ngày đặt</th>
+                    <th>Trạng thái</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for o in orders %}
+                <tr>
+                    <td><i>{{ loop.index }}</i></td>
+                    <td>{{ o.id }}</td>
+                    <td>{{ o.createdDate }}</td>
+                    {% if o.isCancel == True %}
+                    <td><span class="badge bg-danger">Đơn hàng đã hủy</span></td>
+                    {% elif o.isPay == True %}
+                    <td><span class="badge bg-success">Đã thanh toán</span></td>
+                    {% else %}
+                    <td><span class="badge bg-warning">Chưa thanh toán</span></td>
+                    {% endif %}
+                    <td>
+                        <a class="btn btn-primary btn-sm" href="/list-order/{{ o.id }}">
+                            Chi tiết đơn hàng
+                        </a>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% if current_user.user_role != UserRole.STAFF %}
+        <a href="/" type="btn" class="btn btn-primary mt-3">
+            Quay lại
+        </a>
+        {% else %}
+        <a href="/order/" type="btn" class="btn btn-primary mt-3">
+            Quay lại
+        </a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

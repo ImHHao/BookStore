@@ -1,0 +1,222 @@
+{% extends 'admin/master.html' %}
+
+{% block body %}
+<h1 class="text-center text-danger mt-1 font-weight-bold">THỐNG KÊ BÁO CÁO</h1>
+
+<body class="report-body">
+  <div class="time-selector">
+    <div class="form-group">
+      <label for="month">Tháng:</label>
+      <select id="month" class="form-control">
+        <option value="">-- Chọn --</option>
+        <option value="1" {% if request.args.get('month')=='1' %}selected{% endif %}>Tháng 1</option>
+        <option value="2" {% if request.args.get('month')=='2' %}selected{% endif %}>Tháng 2</option>
+        <option value="3" {% if request.args.get('month')=='3' %}selected{% endif %}>Tháng 3</option>
+        <option value="4" {% if request.args.get('month')=='4' %}selected{% endif %}>Tháng 4</option>
+        <option value="5" {% if request.args.get('month')=='5' %}selected{% endif %}>Tháng 5</option>
+        <option value="6" {% if request.args.get('month')=='6' %}selected{% endif %}>Tháng 6</option>
+        <option value="7" {% if request.args.get('month')=='7' %}selected{% endif %}>Tháng 7</option>
+        <option value="8" {% if request.args.get('month')=='8' %}selected{% endif %}>Tháng 8</option>
+        <option value="9" {% if request.args.get('month')=='9' %}selected{% endif %}>Tháng 9</option>
+        <option value="10" {% if request.args.get('month')=='10' %}selected{% endif %}>Tháng 10</option>
+        <option value="11" {% if request.args.get('month')=='11' %}selected{% endif %}>Tháng 11</option>
+        <option value="12" {% if request.args.get('month')=='12' %}selected{% endif %}>Tháng 12</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="year">Năm:</label>
+      <select id="year" class="form-control">
+        <option value="">-- Chọn --</option>
+        <script>
+          const currentYear = new Date().getFullYear();
+          for (let year = 2020; year <= currentYear; year++) {
+            document.write(`<option value="${year}" {% if request.args.get('year') == '${year}' %}selected{% endif %}>${year}</option>`);
+          }
+        </script>
+      </select>
+    </div>
+
+    <button type="button" class="btn-submit" id="submitButton">Thống Kê</button>
+  </div>
+  <div class="row-container">
+
+    <!-- Bảng thống kê -->
+    <div class="report-content">
+      <div class="report-header">
+        <h1>Bảng Thống Kê Doanh Thu Theo Thể Loại</h1>
+      </div>
+
+      <div class="report-info">
+        <p><strong>Tháng:</strong> <span id="displayMonth">{{ request.args.get('month', '12') }}</span> &emsp;
+          <strong>Năm:</strong> <span id="displayYear">{{ request.args.get('year', current_year) }}</span></p>
+      </div>
+
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Thể Loại Sách</th>
+            <th>Doanh Thu</th>
+            <th>Số Lượt Mua</th>
+            <th>Tỷ Lệ Mua</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for s in month_revenue_stats %}
+          <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ "{:,.0f}".format(s[2]) }} VNĐ</td>
+            <td>{{ s[3] }}</td>
+            <td>{{ "{:.0f}%".format(s[4]) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <div class="report-summary">
+        <p><strong>Tổng Doanh Thu:</strong> {{ "{:,.0f}".format(total_revenue) }} VND</p>
+        <!-- Định dạng tiền tệ cho tổng doanh thu -->
+      </div>
+
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="chart-container">
+      <canvas id="myChart1"></canvas>
+      <h6 class="text-center font-weight-bold"><strong>Biểu đồ: </strong></h6>
+      <p class="text-center">Thống kê doanh thu hàng tháng</p>
+    </div>
+  </div>
+
+  <div class="row-container">
+
+    <!-- Bảng thống kê -->
+    <div class="report-content">
+      <div class="report-header">
+        <h1>Bảng Thống Kê Lượt Mua Theo Đầu Sách</h1>
+      </div>
+
+      <div class="report-info">
+        <p><strong>Tháng:</strong> <span id="displayMonth">{{ request.args.get('month', '12') }}</span> &emsp;
+          <strong>Năm:</strong> <span id="displayYear">{{ request.args.get('year', current_year) }}</span></p>
+      </div>
+
+      <table class="report-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Tên Sách</th>
+            <th>Thể Loại</th>
+            <th>Số Lượng Mua</th>
+            <th>Tỷ Lệ</th>
+          </tr>
+        </thead>
+        <tbody>
+
+          {% for s in book_frequency_stats %}
+          <tr>
+            <td>{{ s[0] }}</td>
+            <td>{{ s[1] }}</td>
+            <td>{{ s[2] }}</td>
+            <td>{{ s[3] }}</td>
+            <td>{{ "{:.0f}%".format(s[4]) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Biểu đồ -->
+    <div class="chart-container">
+      <canvas id="myChart2"></canvas>
+      <h6 class="text-center font-weight-bold"><strong>Biểu đồ: </strong></h6>
+      <p class="text-center">Thống kê số lượt mua hàng tháng</p>
+    </div>
+  </div>
+
+  <link rel="stylesheet" href="../../static/css/stats.css">
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+  let data = [];
+  let labels = [];
+
+  let data2 = [];
+  let labels2 = [];
+
+  {% for s in month_revenue_stats %}
+  labels.push('{{ s[1] }}');
+  data.push({{ s[2] }});
+  {% endfor %}
+
+  {% for s in book_frequency_stats %}
+  labels2.push('{{ s[1] }}');
+  data2.push({{ s[3] }});
+  {% endfor %}
+
+  window.onload = function () {
+    const ctx1 = document.getElementById('myChart1');
+    const ctx2 = document.getElementById('myChart2');
+
+    new Chart(ctx1, {
+      type: 'bar',
+      data: {
+        labels: labels,
+        datasets: [{
+          label: 'Doanh Thu',
+          data: data,
+          borderWidth: 1,
+          backgroundColor: ['red', 'green', 'yellow', 'blue']
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    new Chart(ctx2, {
+      type: 'pie',
+      data: {
+        labels: labels2,
+        datasets: [{
+          label: 'Số lượng mua',
+          data: data2,
+          borderWidth: 1,
+          backgroundColor: ['red', 'green', 'yellow', 'blue', 'orange', 'purple', 'pink', 'cyan', 'magenta', 'teal']
+        }]
+      },
+      options: {
+        scales: {
+          y: {
+            beginAtZero: true
+          }
+        }
+      }
+    });
+
+    document.getElementById('submitButton').addEventListener('click', () => {
+      const month = parseInt(document.getElementById('month').value);
+      const year = parseInt(document.getElementById('year').value);
+
+      if (!month || !year) {
+        alert('Vui lòng chọn tháng và năm hợp lệ!');
+        return;
+      }
+
+      // Cập nhật giá trị hiển thị trên trang
+      document.getElementById('displayMonth').innerText = month;
+      document.getElementById('displayYear').innerText = year;
+
+      // Gửi tháng và năm lên view trong Flask Admin
+      window.location.href = `/admin/statsview/?month=${month}&year=${year}`;
+    });
+  };
+</script>
+{% endblock %}

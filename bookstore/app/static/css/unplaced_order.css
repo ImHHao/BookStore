@@ -1,0 +1,357 @@
+body {
+    background: #eee;
+}
+
+.product-content {
+    border: 2px solid #dfe5e9;
+    margin-bottom: 20px;
+    margin-top: 12px;
+    background: #fff;
+    padding: 4px;
+    box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.37);
+}
+
+.product-content .product-image {
+    background-color: #fff;
+    display: block;
+    min-height: 238px;
+    overflow: hidden;
+    position: relative;
+}
+
+.product-content .product-deatil {
+    border-bottom: 1px solid #dfe5e9;
+    padding: 16px;
+    background: #fff;
+}
+
+.product-content .product-deatil h5 a {
+    color: #2f383d;
+    font-size: 15px;
+    text-decoration: none;
+}
+
+.product-content .product-deatil span.tag1 {
+    border-radius: 50%;
+    color: #fff;
+    font-size: 15px;
+    height: 50px;
+    padding: 13px 0;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 50px;
+}
+
+.product-content .product-info {
+    padding: 11px 19px;
+}
+
+.product-content .product-info a.add-to-cart {
+    color: #2f383d;
+    font-size: 13px;
+}
+
+.product-entry .product-deatil {
+    padding: 16px;
+    background: #fff;
+}
+
+.load-more-btn {
+    background-color: #21c2f8;
+    border: 2px solid #037ca5;
+    border-radius: 2px;
+    padding: 9px 0;
+    width: 100%;
+}
+
+.product-info.smart-form .rating label {
+    margin-top: 0;
+}
+
+.product-wrap .product-image span.sale {
+    background-color: #57889c;
+}
+
+.product-deatil .name a {
+    margin-left: 0;
+}
+
+.product-deatil .price-container {
+    font-size: 24px;
+    margin: 0;
+}
+
+@media only screen and (min-width: 1024px) {
+    .product-content .product-image {
+        border-right: 1px solid #dfe5e9;
+    }
+
+    .product-content .product-info {
+        position: relative;
+    }
+}
+
+#download-app {
+    background: #EDEBE4;
+    padding: 120px 0;
+}
+
+footer#footer {
+    padding-bottom: 80px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#footer .footer-item img.footer-logo {
+    margin-bottom: 40px;
+}
+
+#footer .footer-menu ul a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+}
+
+.product-style {
+    position: relative;
+    overflow: hidden;
+}
+
+.product-style img.product-item {
+    background: #EFEEE8;
+    border: 1px solid #EAE8DF;
+    width: 100%;
+}
+
+.product-style button.add-to-cart {
+    position: absolute;
+    background: #7b0303;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3;
+    bottom: -65px;
+    left: 0;
+    z-index: 9;
+    transition: 0.3s ease-out;
+}
+
+.product-style:hover button.add-to-cart {
+    bottom: 0;
+}
+
+.product-item figcaption {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* Rút gọn nội dung */
+}
+
+.card-order .card-body {
+    overflow-y: auto;
+    /* Thêm cuộn dọc nếu nội dung quá lớn */
+    max-height: 500px;
+    /* Giới hạn chiều cao tối đa */
+}
+
+.product-item figcaption>h3 {
+    font-size: 1em;
+    font-weight: 500;
+    color: #74642F;
+}
+
+.product-item .item-price {
+    color: #74642F;
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 768px) {
+    .products-grid .product-item {
+        width: 45%;
+    }
+
+    .product-style img.product-item {
+        object-fit: contain;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .products-grid .product-style {
+        width: 100%;
+    }
+}
+
+.product-style {
+    margin: 0;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.product-style img {
+    width: 100%;
+    height: auto;
+    display: block;
+    margin: auto;
+    border-radius: 5px;
+}
+
+
+
+.row.g-3.mb-4 {
+    min-height: 90px;
+    /* Đảm bảo ô tìm kiếm có chiều cao đủ lớn */
+}
+
+/* Tinh chỉnh chiều cao của sản phẩm trong giỏ hàng */
+.card-body table {
+    flex-grow: 1;
+    /* Cho phép bảng sản phẩm chờ chiếm không gian còn lại */
+}
+
+/* Căn chỉnh nút thanh toán và xóa giỏ hàng */
+.card-body .btn {
+    width: 48%;
+    /* Đảm bảo các nút không chiếm hết chiều rộng */
+    font-size: 14px;
+}
+
+/* Mã khách hàng */
+#customerCode {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Các nút phía dưới cùng */
+.mt-auto {
+    margin-top: auto;
+    /* Đảm bảo các nút thanh toán và xóa giỏ hàng ở dưới cùng */
+}
+
+.search-input {
+    height: 40px;
+    /* Điều chỉnh chiều cao theo yêu cầu */
+    /* Padding của ô tìm kiếm */
+    font-size: 14px;
+    /* Kích thước chữ */
+}
+
+/* Điều chỉnh ô tìm kiếm */
+.search-container {
+    display: flex;
+    align-items: center;
+    /* Căn chỉnh các phần tử theo chiều dọc */
+    height: 40px;
+    /* Đảm bảo chiều cao của ô tìm kiếm giống như ô sách */
+    padding: 0 10px;
+    /* Padding cho ô tìm kiếm */
+}
+
+/* Nếu cần căn chỉnh thêm các phần tử trong ô tìm kiếm */
+.search-container input {
+    height: 100%;
+    /* Đảm bảo input chiếm hết chiều cao */
+    padding: 5px 10px;
+}
+
+.col-md-3 {
+    margin-bottom: 20px;
+}
+
+
+.card-order {
+    height: 700px;
+}
+
+.card-header {
+    background-color: #007bff;
+    color: white;
+}
+
+.input-group-text {
+    background-color: #f7f7f7;
+    border: 1px solid #ced4da;
+}
+
+.payment-card-body-order {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    /* Đảm bảo chiều cao của thẻ chứa giỏ hàng chiếm hết không gian */
+}
+
+
+.payment-buttons {
+    margin-top: auto;
+    /* Đẩy các nút về phía dưới */
+    display: flex;
+    justify-content: space-between;
+    /* Căn đều các nút */
+}
+
+.custom-btn {
+    background-color: #3498db;
+    /* Màu xanh dương nhẹ */
+    color: white;
+    border: none;
+}
+
+.custom-btn:hover {
+    background-color: #2980b9;
+    /* Màu xanh đậm khi hover */
+}
+
+.add-to-cart {
+    font-size: 0.8rem;
+    /* Giảm kích thước chữ */
+    padding: 4px 8px;
+    /* Điều chỉnh padding để nút nhỏ lại */
+    height: auto;
+    /* Đảm bảo chiều cao không bị cố định */
+}
+
+
+.cart-table td {
+    vertical-align: middle;
+    white-space: nowrap;
+    /* Giữ nội dung trong một dòng */
+    overflow: hidden;
+    /* Ẩn phần tràn */
+    text-overflow: ellipsis;
+    /* Thêm "..." nếu nội dung quá dài */
+}
+
+.cart-table {
+    table-layout: fixed;
+    /* Giới hạn chiều rộng các cột */
+    word-wrap: break-word;
+    /* Tự động xuống dòng nếu quá dài */
+    overflow-x: auto;
+    /* Cuộn ngang nếu cần */
+}
+
+.product-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+}
+
+.quantity-input {
+    width: 70px;
+}
+
+.product-image {
+    width: 50px;
+}
+
+.nav.nav-tabs {
+    margin-top: 70px;
+}

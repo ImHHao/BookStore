@@ -1,0 +1,366 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+}
+
+.nav-tabs .nav-link {
+    color: #555;
+    font-weight: 1000;
+    font-size: medium;
+}
+
+.nav-tabs .nav-link.active {
+    color: #fff;
+    background-color: #007bff;
+    font-weight: 1000;
+}
+
+.table-list-order th,
+.table-list-order td {
+    text-align: center;
+    /* Căn giữa theo chiều ngang */
+    vertical-align: middle;
+    /* Căn giữa theo chiều dọc */
+}
+
+.table-list-order tbody tr:hover {
+    background-color: #f9f9f9;
+}
+
+.badge {
+    padding: 8px 12px;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Tùy chỉnh kích thước biểu tượng ba chấm */
+.dropdown .btn-light {
+    padding: 0.5rem;
+    border: none;
+}
+
+/* Thay đổi phong cách cho card-body */
+.card-body {
+    background-color: #f8f9fa;
+    /* Màu nền sáng */
+    border: 1px solid #ddd;
+    /* Đường viền nhẹ */
+    border-radius: 8px;
+    /* Góc bo tròn */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Bóng đổ nhẹ */
+    padding: 20px;
+}
+
+/* Tiêu đề cho card-body (nếu cần thêm heading) */
+.card-body-header {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #495057;
+    text-transform: uppercase;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Tùy chỉnh hover cho hàng trong bảng */
+.table-list-order tbody tr:hover {
+    background-color: #f1f3f5;
+    cursor: pointer;
+}
+
+/* Tùy chỉnh khoảng cách giữa các hàng */
+.table-list-order tbody tr {
+    height: 60px;
+    /* Chiều cao hàng */
+}
+
+/* Tùy chỉnh phần tiêu đề bảng (th) */
+.table-list-order thead th {
+    background-color: #3a3f51;
+    /* Màu xám đậm nhã nhặn */
+    color: #f8f9fa;
+    /* Màu chữ trắng nhạt */
+    font-weight: bold;
+    /* Chữ đậm */
+    text-align: center;
+    /* Căn giữa văn bản */
+    vertical-align: middle;
+    /* Căn giữa theo chiều dọc */
+    padding: 15px 20px;
+    /* Thêm khoảng cách cho các ô tiêu đề */
+    border: 1px solid #2e3240;
+    /* Đường viền đồng nhất */
+    border-bottom: 4px solid #6c757d;
+    /* Đường gạch dưới màu xám nhẹ */
+}
+
+/* Hiệu ứng hover */
+.table-list-order thead th:hover {
+    background-color: #495057;
+    /* Đổi màu nền khi hover sang xám nhạt hơn */
+    cursor: pointer;
+    /* Con trỏ chuột thay đổi khi hover */
+}
+
+/* Căn giữa cho cột Cài đặt với biểu tượng */
+.table-list-order thead th.settings-header {
+    text-align: center;
+    /* Căn giữa cho cột này */
+}
+
+/* Tùy chỉnh cột "Cài đặt" với biểu tượng */
+.table-list-order thead th.settings-header::after {
+    content: " ⚙";
+    /* Biểu tượng bánh răng */
+    font-size: 0.9rem;
+    color: #adb5bd;
+    /* Màu biểu tượng xám nhẹ */
+    margin-left: 5px;
+}
+
+/* Hiệu ứng bo góc và bóng nhẹ cho toàn bộ bảng */
+
+.table-list-order {
+    width: 100%;
+    /* Ensure the table takes full width */
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu {
+    z-index: 1050;
+    /* Đảm bảo menu luôn hiển thị phía trên */
+    max-height: 200px;
+    /* Giới hạn chiều cao menu nếu danh sách quá dài */
+    overflow-y: auto;
+    /* Thêm cuộn dọc nếu danh sách dài */
+}
+
+.table-list-order {
+    position: relative;
+    /* Đặt bảng ở trạng thái tương đối */
+    overflow: visible;
+    /* Đảm bảo không cắt danh sách sổ xuống */
+}
+
+.nav-tabs .nav-link.active {
+    font-weight: bold;
+    background-color: #007bff;
+    /* Màu xanh Bootstrap */
+    color: white;
+}
+
+#page-header {
+    background-color: #007BFF;
+    /* Màu nền xanh */
+    color: #FFFFFF;
+    /* Màu chữ trắng */
+    padding: 20px 40px;
+    /* Tăng padding để làm cho header rộng ra */
+    border-radius: 8px;
+    /* Bo góc header */
+    text-align: center;
+    /* Căn giữa chữ */
+    max-width: 1200px;
+    /* Giới hạn chiều rộng tối đa */
+    margin: 0 auto;
+    /* Canh giữa header */
+}
+
+#page-header {
+    background-color: #007BFF;
+    /* Màu nền xanh */
+    color: #FFFFFF;
+    /* Màu chữ trắng */
+    padding: 20px 40px;
+    /* Tăng padding để làm cho header rộng ra */
+    border-radius: 8px;
+    /* Bo góc header */
+    text-align: center;
+    /* Căn giữa chữ */
+    /* Canh giữa header nếu muốn */
+    width: 100%;
+    /* Chiều rộng của header chiếm toàn bộ chiều rộng của trang */
+}
+
+footer#footer {
+    padding-bottom: 80px;
+    margin-top: 100px;
+    margin-bottom: 60px;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+#footer .footer-item {
+    margin-right: 100px;
+}
+
+#footer .footer-item img.footer-logo {
+    margin-bottom: 40px;
+}
+
+#footer .footer-item p {
+    width: 80%;
+}
+
+#footer .footer-menu {
+    margin-right: 40px;
+    margin-bottom: 40px;
+}
+
+#footer .footer-menu ul {
+    list-style: none;
+}
+
+#footer .footer-menu ul a {
+    color: var(--dark-text-color);
+    text-decoration: none;
+}
+
+#footer .footer-menu:last-child {
+    margin-right: 0;
+}
+
+.footer-menu h5 {
+    font-size: 1.5em;
+    font-weight: 500;
+    margin-top: 0;
+    margin-bottom: 40px;
+    text-transform: capitalize;
+}
+
+@media screen and (max-width: 768px) {
+    #footer .footer-item {
+        margin-right: 0;
+    }
+}
+
+/* Shop page */
+.products-grid {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.product-style {
+    position: relative;
+    overflow: hidden;
+}
+
+.slick-slider .product-style {
+    margin: 0 15px 25px;
+}
+
+.product-style figcaption p {
+    margin-bottom: 20px;
+}
+
+.product-style img.product-item {
+    position: relative;
+    background: #EFEEE8;
+    border: 1px solid #EAE8DF;
+    padding: 0%;
+    cursor: pointer;
+    width: 100%;
+}
+
+.product-style button.add-to-cart {
+    position: absolute;
+    background: #7b0303;
+    color: #fff;
+    width: 100%;
+    margin: 0;
+    text-transform: uppercase;
+    text-align: center;
+    line-height: 3;
+    bottom: 300px;
+    bottom: -65px;
+    left: 0;
+    z-index: 9;
+    transition: 0.3s ease-out;
+}
+
+.product-style:hover button.add-to-cart {
+    bottom: 380px;
+    bottom: 0;
+}
+
+.product-item figcaption {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.product-item figcaption>h3 {
+    font-size: 1.4em;
+    font-weight: 500;
+    color: #74642F;
+    margin: 0;
+}
+
+.product-item figcaption>p {
+    margin: 0;
+}
+
+.product-item .item-price {
+    color: #74642F;
+    font-size: 1.3em;
+}
+
+@media screen and (max-width: 768px) {
+    .products-grid .product-item {
+        width: 45%;
+    }
+
+    .product-style img.product-item {
+        /*height: 550px;*/
+        object-fit: contain;
+        margin: 0 auto;
+    }
+
+    .products-grid.col-3 .product-style,
+    .products-grid.col-4 .product-style,
+    .products-grid.col-5 .product-style {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .products-grid .product-style {
+        width: 100%;
+    }
+}
+
+.product-style {
+    padding: 0%;
+    /* Thu nhỏ khoảng cách bên trong khung bao quanh hình ảnh */
+    margin: 0;
+    /* Loại bỏ khoảng cách bên ngoài khung ảnh */
+    background-color: #f9f9f9;
+    /* Màu nền nhẹ cho khung hình ảnh (tùy chọn) */
+    border: 1px solid #ddd;
+    /* Đường viền nhẹ để phân biệt khung hình ảnh */
+    border-radius: 5px;
+    /* Bo góc cho khung ảnh */
+}
+
+.product-style img {
+    width: 100%;
+    /* Giữ ảnh vừa với khung */
+    height: auto;
+    display: block;
+    margin: auto;
+    /* Đảm bảo hình ảnh được căn giữa */
+    border-radius: 5px;
+    /* Bo góc cho ảnh (tùy chọn) */
+}
+
+body {
+    background-color: #f4f6f9;
+    /* Màu nền nhẹ cho toàn bộ trang */
+}

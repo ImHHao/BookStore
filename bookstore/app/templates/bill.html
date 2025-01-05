@@ -1,0 +1,68 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<body class="bill-body">
+    <div class="bill-container">
+        <div class="bill-header">
+            <h1 class="bill-title">Hóa đơn bán sách</h1>
+        </div>
+        <div class="bill-customer-info">
+            {% if billInfo.cusID != 0 and billInfo.cusName != "" %}
+            <div class="bill-customer-details">
+                <p id="idCus"><strong>Mã khách hàng:</strong> {{ billInfo.cusID }}</p>
+                <p id="nameCus"><strong>Tên khách hàng:</strong> {{ billInfo.cusName }}</p>
+            </div>
+            {% endif %}
+            <div class="bill-invoice-date">
+                <p><strong>Ngày lập hóa đơn:</strong> {{ billInfo.createdDate }}</p>
+            </div>
+        </div>
+        <table class="bill-table">
+            <thead>
+                <tr class="bill-header-row">
+                    <th class="bill-th">Mã sách</th>
+                    <th class="bill-th">Tên sách</th>
+                    <th class="bill-th">Thể loại</th>
+                    <th class="bill-th">Giá</th>
+                    <th class="bill-th">Số lượng</th>
+                    <th class="bill-th">Giá tổng</th>
+                </tr>
+            </thead>
+            {% for b in bill %}
+            <tbody>
+                <tr class="bill-row">
+                    <td class="bill-td">{{ b.id }}</td>
+                    <td class="bill-td">{{ b.name }}</td>
+                    <td class="bill-td">{{ b.category }}</td>
+                    <td class="bill-td">{{ b.price|currency }}</td>
+                    <td class="bill-td">{{ b.quantity }}</td>
+                    <td class="bill-td">{{ b.totalUnitPrice|currency }}</td>
+                </tr>
+            </tbody>
+            {% endfor %}
+        </table>
+
+        <div class="bill-footer-row">
+            <p class="bill-footer-label"><strong>Tổng cộng: </strong>{{ billInfo.totalPrice|currency }}</p>
+        </div>
+
+        <div class="bill-employee-info">
+            {% if billInfo.staffID != 0 and billInfo.staffName != "" %}
+            <div class="bill-employee-details">
+                <p><strong>Mã nhân viên thanh toán:</strong> {{ billInfo.staffID }}</p>
+                <p><strong>Tên nhân viên thanh toán:</strong> {{ billInfo.staffName }}</p>
+            </div>
+            {% endif %}
+        </div>
+
+        <div class="bill-footer">
+            <p class="bill-footer-text">Cảm ơn quý khách đã mua hàng!</p>
+        </div>
+    </div>
+    <div class="button-container" style="text-align: right;">
+        <a type="button" href="/order/" class="btn btn-primary mt-3" style="background-color: #00796b; border-color: #00796b;">
+            Quay lại
+        </a>
+    </div>
+</body>
+{% endblock %}

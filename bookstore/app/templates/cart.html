@@ -1,0 +1,111 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-lg-9">
+            <div class="card">
+                <div class="table-responsive">
+                    <table class="table table-borderless table-shopping-cart">
+                        <thead class="text-muted-cart">
+                            <tr class="small text-uppercase">
+                                <th scope="col">Sản phẩm</th>
+                                <th scope="col" width="120" class="quantity">Số lượng</th>
+                                <th scope="col" width="120">Giá</th>
+                                <th scope="col" class="text-right d-none d-md-block" width="200"></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% if cart %}
+                            {% for c in cart.values() %}
+                            <tr id="cart{{ c.id }}">
+                                <td>
+                                    <figure class="itemside align-items-center">
+                                        <div class="aside"><img src="{{ c.image }}" class="img-sm"></div>
+                                        <figcaption class="info"><a href="#" class="title text-dark" data-abc="true">{{
+                                                c.name }}</a>
+                                            <p class="text-muted small">
+                                                Tác giả: {{ c.author }}<br>
+                                                Loại: {{ c.category }}
+                                            </p>
+                                        </figcaption>
+                                    </figure>
+                                </td>
+                                <td>
+                                    {% if current_user.user_role != UserRole.STAFF %}
+                                    <div class="input-group quantity-control">
+                                        <div class="input-group-prepend">
+                                            <a class="btn btn-outline-secondary btn-decrement" type="button"
+                                                data-product-id="{{ c.id }}"
+                                                onclick="updateQuantity({{ c.id }}, 'giam')">-
+                                            </a>
+                                        </div>
+                                        <input type="text" class="form-control quantity-input"
+                                            id="quantity-input-{{ c.id }}" value="{{ c.quantity }}">
+                                        <div class="input-group-append">
+                                            <a class="btn btn-outline-secondary btn-increment" type="button"
+                                                data-product-id="{{ c.id }}"
+                                                onclick="updateQuantity({{ c.id }}, 'tang')">+
+                                            </a>
+                                        </div>
+                                    </div>
+                                    {% else %}
+                                    <input type="text" class="form-control quantity-input"
+                                        id="quantity-input-{{ c.id }}" value="{{ c.quantity }}x" readonly>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <div class="price-wrap">
+                                        <var id="unitPrice" class="price">{{ (c.price * c.quantity)|currency }}</var>
+                                    </div>
+                                </td>
+                                {% if current_user.user_role != UserRole.STAFF %}
+                                <td class="text-right d-none d-md-block">
+                                    <button type="button" class="btn btn-light" onclick="removeFromCart({{ c.id }})">
+                                        Xoá Sản Phẩm
+                                    </button>
+                                </td>
+                                {% endif %}
+                            </tr>
+                            {% endfor %}
+                            {% endif %}
+                        </tbody>
+                    </table>
+                    {% if current_user.user_role == UserRole.STAFF %}
+                    <div class="mb-3">
+                        <label class="form-label">Số điện thoại khách hàng:</label>
+                        <form class="input-group">
+                            <span class="input-group-text"><i class="bi bi-search"></i></span>
+                            <input type="text" class="form-control" name="phone" id="phone" value="">
+                        </form>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </aside>
+        <aside class="col-lg-3">
+            <div class="card">
+                <div class="card-body-cart">
+                    <hr>
+                    {% if current_user.user_role != UserRole.STAFF %}
+                    {% if cart_stats.total_quantity != 0 %}
+                    <a href="/checkout" class="btn btn-out btn-danger btn-square btn-main" style="font-size: 18px;"
+                        data-abc="true">Thanh toán</a>
+                    {% endif %}
+                    <a href="/" class="btn btn-out btn-primary btn-square btn-main mt-2" style="font-size: 18px;"
+                        data-abc="true">Tiếp tục mua sách</a>
+                    {% else %}
+                    {% if cart_stats.total_quantity != 0 %}
+                    <button onclick="payOrder(document.getElementById('phone').value)" class="btn btn-out btn-danger btn-square btn-main"
+                        style="font-size: 18px;" data-abc="true">Thanh toán</button>
+                    {% endif %}
+                    <a href="/order/" class="btn btn-out btn-primary btn-square btn-main mt-2" style="font-size: 18px;"
+                        data-abc="true">Tiếp tục mua sách</a>
+                    {% endif %}
+                </div>
+            </div>
+        </aside>
+    </div>
+</div>
+
+{% endblock %}

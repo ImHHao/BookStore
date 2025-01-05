@@ -1,0 +1,78 @@
+.detail-order-body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+.button-container {
+    display: flex;
+    flex-direction: column; /* Sắp xếp theo chiều dọc */
+    align-items: flex-end; /* Căn phải */
+    gap: 10px; /* Khoảng cách giữa các phần tử */
+}
+
+.detail-order-container {
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+    margin-top: 50px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    margin-top: 120px;
+}
+
+.detail-order-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+}
+
+.detail-order-heading {
+    text-align: center;
+    color: #00796b;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-weight: bold;
+}
+
+.detail-order-table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+}
+
+.detail-order-table th,
+.detail-order-table td {
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    border: 1px solid #b2dfdb;
+}
+
+.detail-order-thead {
+    background-color: #26a69a;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.detail-order-tfoot {
+    background-color: #b2dfdb;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+.detail-order-text-end {
+    text-align: right;
+}
+
+.detail-order-book-image {
+    width: 70px;
+    height: auto;
+    border-radius: 8px;
+    transition: transform 0.3s;
+}
+
+.detail-order-book-image:hover {
+    transform: scale(1.1);
+}
+

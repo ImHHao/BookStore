@@ -1,0 +1,83 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #eef2f7;
+    margin-top: 20px;
+}
+
+/* Styles specific to the Book Manager page */
+.book-manager .table-container {
+    padding: 20px;
+    margin-top: 10px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.book-manager .table {
+    width: 100%;
+    margin: 0;
+    border-collapse: collapse;
+}
+
+.book-manager .table thead th {
+    background-color: #34495e;
+    color: white;
+    text-align: center;
+}
+
+.book-manager .table tbody td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.book-manager .table img {
+    border-radius: 5px;
+    width: 50px;
+    height: auto;
+}
+
+.book-manager .author-badge {
+    display: inline-block;
+    padding: 5px 5px;
+    border-radius: 20px;
+    background-color: #ffdd57;
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: #343a40;
+}
+
+.book-manager .btn-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: none;
+    border: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.book-manager .btn-icon.edit {
+    background-color: #cce5ff;
+    color: #007bff;
+}
+
+.book-manager .btn-icon.delete {
+    background-color: #f8d7da;
+    color: #dc3545;
+}
+
+.book-manager .btn-icon:hover {
+    opacity: 0.8;
+}
+
+.book-manager .btn-primary {
+    background-color: #28a745;
+    border: none;
+}
+
+.book-manager .btn-primary:hover {
+    background-color: #218838;
+}

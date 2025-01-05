@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Di Sản Hồ Chí Minh - Hành Trình Theo Chân Bác (Tái Bản 2021)",
+    "inventoryQuantity": 100,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_237825.jpg",
+    "price": 96000,
+    "author_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Quản Trị Bằng Văn Hóa - Cách Thức Kiến Tạo Và Tái Tạo Văn Hóa Tổ Chức",
+    "inventoryQuantity": 78,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935280401068.jpg",
+    "price": 175000,
+    "author_id": 2,
+    "category_id": 2
+  },
+  {
+    "name": "Không Gia Đình",
+    "inventoryQuantity": 115,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935343700657.jpg",
+    "price": 99000,
+    "author_id": 3,
+    "category_id": 3
+  },
+  {
+    "name": "Cây Cam Ngọt Của Tôi",
+    "inventoryQuantity": 50,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_217480.jpg",
+    "price": 81000,
+    "author_id": 4,
+    "category_id": 3
+  },
+  {
+    "name": "Di Chúc Của Chủ Tịch Hồ Chí Minh",
+    "inventoryQuantity": 124,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9786045892640.jpg",
+    "price": 21250,
+    "author_id": 5,
+    "category_id": 1
+  },
+  {
+    "name": "Đi Dọc Dòng Sông Phật Giáo",
+    "inventoryQuantity": 5,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_183943.jpg",
+    "price": 70000,
+    "author_id": 1,
+    "category_id": 1
+  },
+  {
+    "name": "Sapiens Lược Sử Loài Người",
+    "inventoryQuantity": 10,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/b/_/b_a-sapiens.jpg",
+    "price": 127200,
+    "author_id": 6,
+    "category_id": 4
+  },
+  {
+    "name": "Lịch Sử Thế Giới",
+    "inventoryQuantity": 54,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_39442.jpg",
+    "price": 63000,
+    "author_id": 7,
+    "category_id": 4
+  },
+  {
+    "name": "Súng, Vi Trùng Và Thép (Tái Bản)",
+    "inventoryQuantity": 194,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935270703837.jpg",
+    "price": 271200,
+    "author_id": 8,
+    "category_id": 4
+  },
+  {
+    "name": "Lịch Sử Và Học Thuyết Của Voltaire",
+    "inventoryQuantity": 32,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_195509_1_39443.jpg",
+    "price": 63750,
+    "author_id": 7,
+    "category_id": 4
+  },
+  {
+    "name": "Vun Đắp Tâm Hồn - Tiệm Bánh Của Thỏ Mina",
+    "inventoryQuantity": 18,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/v/u/vun-dap-tam-hon_tiem-banh-cua-tho-mina_bia.jpg",
+    "price": 45000,
+    "author_id": 3,
+    "category_id": 3
+  },
+  {
+    "name": "Chuyện Kể Trước Giờ Đi Ngủ: Giấc Mơ Bơ Cà Rốt",
+    "inventoryQuantity": 100,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935244870250.jpg",
+    "price": 59400,
+    "author_id": 3,
+    "category_id": 3
+  },
+  {
+    "name": "Một Đời Quản Trị (Tái Bản 2019)",
+    "inventoryQuantity": 0,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8934974164623.jpg",
+    "price": 154000,
+    "author_id": 9,
+    "category_id": 2
+  },
+  {
+    "name": "Cơn lốc quản trị - Ba trụ cột của văn hóa doanh nghiệp",
+    "inventoryQuantity": 2,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/c/o/con-loc-quan-tri---bia-1.jpg",
+    "price": 121800,
+    "author_id": 9,
+    "category_id": 2
+  },
+  {
+    "name": "Nuôi Dạy Con Không Quát Mắng",
+    "inventoryQuantity": 200,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235239227.jpg",
+    "price": 84000,
+    "author_id": 10,
+    "category_id": 5
+  },
+  {
+    "name": "Cách Để Trở Thành Cha Mẹ Tốt",
+    "inventoryQuantity": 20,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_231616.jpg",
+    "price": 42000,
+    "author_id": 11,
+    "category_id": 5
+  },
+  {
+    "name": "Tớ Học Lập Trình - Làm Quen Với Python",
+    "inventoryQuantity": 50,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_241724.jpg",
+    "price": 89250,
+    "author_id": 12,
+    "category_id": 5
+  },
+  {
+    "name": "Dám Hạnh Phúc",
+    "inventoryQuantity": 5,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/8/9/8935235220270.jpg",
+    "price": 94000,
+    "author_id": 10,
+    "category_id": 5
+  },
+  {
+    "name": "Cách Để Về Hưu An Nhàn",
+    "inventoryQuantity": 22,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/i/m/image_230117.jpg",
+    "price": 42000,
+    "author_id": 11,
+    "category_id": 5
+  },
+  {
+    "name": "My First Computer Coding Book Using ScratchJr",
+    "inventoryQuantity": 300,
+    "image": "https://cdn0.fahasa.com/media/catalog/product/9/7/9781474943604.jpg",
+    "price": 240000,
+    "author_id": 12,
+    "category_id": 5
+  }
+]

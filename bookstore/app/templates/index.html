@@ -1,0 +1,35 @@
+{% extends 'layout/base.html' %}
+
+{% block content %}
+<div class="row content">
+    {% if alert %}
+    <div class="alert alert-{{ alert_type }} alert-dismissible fade show" role="alert">
+        {{ alert }}
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {% endif %}
+    {% if books %}
+    <ul class="pagination mt-1">
+        {% for i in range (1, pages + 1) %}
+        <li class="page-item"><a class="page-link" href="/?page={{ i }}">{{ i }}</a></li>
+        {% endfor %}
+    </ul>
+    {% for book in books %}
+    <div class="col-md-3 col-sm-6 mb-4">
+        <a href="/books/{{ book.id }}" class="product-item">
+            <figure class="product-style">
+                <img src="{{ book.image }}" alt="{{ book.name }}" class="img-fluid w-100">
+            </figure>
+            <figcaption>
+                <h3>{{ book.name }}</h3>
+                <span>{{ book.author.name }}</span>
+                <div class="item-price">{{ book.price|currency }}</div>
+            </figcaption>
+        </a>
+    </div>
+    {% endfor %}
+    {% else %}
+    <div class="alert alert-info mt-1">Không có sản phẩm nào!</div>
+    {% endif %}
+</div>
+{% endblock %}
